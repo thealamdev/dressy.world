@@ -1,5 +1,6 @@
 import { MessageSquareDot } from "lucide-react";
 import Link from "next/link";
+import OrderForm from "./components/OrderForm";
 
 const shortsLinks = [
   "cimrHW31uMo",
@@ -9,8 +10,8 @@ const shortsLinks = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8 bg-linear-to-br from-slate-50 to-slate-100 h-full md:h-screen">
-      <div className="w-full max-w-4xl space-y-4">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8 bg-linear-to-br from-slate-50 to-slate-100">
+      <div className="w-full max-w-6xl space-y-4">
         <h3 className="bangla-text text-center text-xl md:text-2xl text-slate-700 font-medium leading-relaxed">
           আমাদের সাথে যোগাযোগ করতে চাইলে নিচের বাটন এ ক্লিক করুন
         </h3>
@@ -39,8 +40,10 @@ export default function Home() {
           </a>
         </div>
 
+        <OrderForm />
+
         {/* Video Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 justify-center">
           {shortsLinks.length > 0 && (
             shortsLinks.map((short: any, index: number) => (
               <div
