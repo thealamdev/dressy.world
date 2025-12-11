@@ -112,8 +112,7 @@ export default function OrderForm() {
                 sessionStorage.removeItem('cart');
                 window.dispatchEvent(new CustomEvent('cartUpdated'));
             } else {
-                // alert("Failed to place order. Please try again.");
-                console.log(response)
+                alert("Failed to place order. Please try again.");
             }
         } catch (error) {
             console.error("Submission error:", error);
@@ -137,10 +136,10 @@ export default function OrderForm() {
                         Place your order
                     </p>
                     <h2 className="mt-2 text-4xl md:text-5xl font-bold text-gray-900">
-                        Complete Your Order
+                        এখনই অর্ডার করুন
                     </h2>
                     <p className="mt-4 text-lg text-gray-600">
-                        Fill in your details below and we'll process your order
+                        নিচে আপনার বিবরণ পূরণ করুন এবং আমরা আপনার অর্ডার প্রক্রিয়া করব।
                     </p>
                 </div>
 

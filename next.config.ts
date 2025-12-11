@@ -14,7 +14,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'sc04.alicdn.com',
       },
-      // Add more if you change images later
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com'
+      }
     ],
   },
 };
