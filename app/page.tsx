@@ -1,6 +1,7 @@
 import { MessageSquareDot } from "lucide-react";
 import Link from "next/link";
 import OrderForm from "./components/OrderForm";
+import Banner from "./components/Banner";
 
 const shortsLinks = [
   "cimrHW31uMo",
@@ -40,6 +41,15 @@ export default function Home() {
           </a>
         </div>
 
+        <Banner />
+        <div className="flex justify-center items-center mt-4">
+          <a
+            className="bg-red-500 text-4xl text-center px-3 py-2 rounded-2xl"
+            type="button"
+            href="#order-form"
+          >অর্ডার করতে চাই</a>
+        </div>
+        
         <OrderForm />
 
         {/* Video Section */}

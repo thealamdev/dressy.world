@@ -35,11 +35,11 @@ export default function Products() {
         if (checked) {
             const alreadyAdded = existing.some((p) => p.id === productId);
             if (!alreadyAdded) {
-                const updatedCart = [...existing, { ...product, quantity: 1 }];
+                const updatedCart = [{ ...product, quantity: 1 }];
                 sessionStorage.setItem('cart', JSON.stringify(updatedCart));
             }
 
-            setSelectedProducts((prev) => [...prev, productId]);
+            setSelectedProducts((prev) => [productId]);
         } else {
             const updatedCart = existing.filter((p) => p.id !== productId);
             sessionStorage.setItem('cart', JSON.stringify(updatedCart));
@@ -59,19 +59,20 @@ export default function Products() {
     }
 
     return (
-        <div className="bg-white px-4">
-            <div className="max-w-4xl mx-auto">
+        <div className="bg-white">
+            <div className="w-full px-5 mx-auto mt-5">
                 <p className="text-orange-500 pb-3 text-sm font-semibold uppercase tracking-wider text-center">
                     Our Products
                 </p>
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {products.map((product) => (
                         <label
                             key={product.id}
                             className="flex gap-4 items-center p-4 border rounded-xl cursor-pointer hover:shadow-lg transition-shadow"
                         >
                             <input
-                                type="checkbox"
+                                type="radio"
+                                name='product'
                                 checked={selectedProducts.includes(product.id)}
                                 onChange={(e) => handleCheckboxChange(product, e.target.checked)}
                                 className="w-6 h-6 accent-orange-500 mr-4"

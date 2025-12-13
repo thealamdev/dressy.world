@@ -1,8 +1,7 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { User, Package, Truck, Check, Wallet, ShoppingCart, X } from "lucide-react";
 import Products from "./Products";
+import { useEffect, useState } from "react";
+import { User, Package, Truck, Check, Wallet, X } from "lucide-react";
 
 export interface ProductInterface {
     id: string;
@@ -12,6 +11,7 @@ export interface ProductInterface {
     image_url: string;
     stock?: string;
 }
+
 interface CartItem extends ProductInterface {
     quantity: 1;
 }
@@ -38,7 +38,6 @@ export default function OrderForm() {
         };
 
         loadCart();
-
         const handleCartUpdate = () => loadCart();
         window.addEventListener('cartUpdated', handleCartUpdate);
 
@@ -139,9 +138,11 @@ export default function OrderForm() {
                         এখনই অর্ডার করুন
                     </h2>
                     <p className="mt-4 text-lg text-gray-600">
-                        নিচে আপনার বিবরণ পূরণ করুন এবং আমরা আপনার অর্ডার প্রক্রিয়া করব।
+                        অর্ডার করতে আপনার নাম, পূর্ণ ঠিকানা, মোবাইল নাম্বার দিয়ে, ” কনফার্ম অর্ডারে “ ক্লিক করুন
                     </p>
                 </div>
+
+                <Products />
 
                 <form onSubmit={handleSubmit} className="grid flex-row-reverse md:grid-cols-2 gap-10 bg-white rounded-3xl p-8 md:p-12">
                     {/* Left: Billing */}
@@ -154,19 +155,23 @@ export default function OrderForm() {
                         </div>
 
                         <div className="grid gap-6">
-                            <input type="text" placeholder="Full Name *" required value={formData.name}
+
+
+
+
+                            <input type="text" placeholder="আপনার নাম *" required value={formData.name}
                                 onChange={e => setFormData({ ...formData, name: e.target.value })}
                                 className="w-full px-5 py-4 border text-gray-800 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500" />
 
-                            <input type="tel" placeholder="Phone Number *" required value={formData.mobile}
+                            <input type="tel" placeholder="মোবাইল নাম্বার *" required value={formData.mobile}
                                 onChange={e => setFormData({ ...formData, mobile: e.target.value })}
                                 className="w-full px-5 py-4 border text-gray-800 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500" />
 
-                            <textarea rows={2} placeholder="Street Address *" required value={formData.address}
+                            <textarea rows={2} placeholder="আপনার ঠিকানা *" required value={formData.address}
                                 onChange={e => setFormData({ ...formData, address: e.target.value })}
                                 className="w-full px-5 py-4 border text-gray-800 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500" />
 
-                            <textarea rows={4} placeholder="Special Requests (optional)" value={formData.specialRequests}
+                            <textarea rows={4} placeholder="বিশেষ নির্দেশনা" value={formData.specialRequests}
                                 onChange={e => setFormData({ ...formData, specialRequests: e.target.value })}
                                 className="w-full px-5 py-4 border text-gray-800 border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
                                 maxLength={500} />
@@ -206,8 +211,6 @@ export default function OrderForm() {
                             <h3 className="text-xl font-semibold text-gray-900">Order Details</h3>
                         </div>
 
-                        <Products />
-
                         {/* Payment Info */}
                         <div className="mt-10">
                             <div className="flex items-center gap-3 mb-6">
@@ -245,7 +248,7 @@ export default function OrderForm() {
                             <button type="submit" disabled={submitting || cartItems.length === 0}
                                 className="inline-flex items-center gap-3 px-12 py-5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg rounded-full shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
                                 <Check className="w-6 h-6" />
-                                {submitting ? "Processing..." : "Place Order"}
+                                {submitting ? "অর্ডার প্রক্রিয়াকরণ করা হচ্ছে..." : "অর্ডার নিশ্চিত করুন"}
                             </button>
                         </div>
                     </div>
