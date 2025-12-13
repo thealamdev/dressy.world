@@ -13,10 +13,9 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8 bg-linear-to-br from-slate-50 to-slate-100">
       <div className="w-full max-w-6xl space-y-4">
-        <h3 className="bangla-text text-center text-xl md:text-2xl text-slate-700 font-medium leading-relaxed">
+        {/* <h3 className="bangla-text text-center text-xl md:text-2xl text-slate-700 font-medium leading-relaxed">
           আমাদের সাথে যোগাযোগ করতে চাইলে নিচের বাটন এ ক্লিক করুন
         </h3>
-        {/* WhatsApp Contact Button */}
         <div className="flex justify-center">
           <Link
             href={`https://wa.me/8801926859047`}
@@ -25,10 +24,10 @@ export default function Home() {
             <MessageSquareDot className="text-white w-6 h-6" />
             <span className="text-xl font-bold text-white">Chat on WhatsApp</span>
           </Link>
-        </div>
+        </div> */}
 
         {/* Bengali Text */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <h3 className="bangla-text text-xl md:text-2xl text-slate-700 font-medium leading-relaxed">
             বিস্তারিত জানতে আমাদের সাথে সরাসরি কথা বলতে যোগাযোগ করুন
           </h3>
@@ -39,17 +38,9 @@ export default function Home() {
           >
             01926-859047
           </a>
-        </div>
+        </div> */}
 
         <Banner />
-        <div className="flex justify-center items-center mt-4">
-          <a
-            className="bg-red-500 text-4xl text-center px-3 py-2 rounded-2xl"
-            type="button"
-            href="#order-form"
-          >অর্ডার করতে চাই</a>
-        </div>
-        
         <OrderForm />
 
         {/* Video Section */}

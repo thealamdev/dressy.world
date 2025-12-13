@@ -1,6 +1,27 @@
 export default function Banner() {
     return (
-        <div className='mb-5 grid grid-cols-1 md:grid-cols-2 h-full md:h-[600px] max-w-6xl justify-between mx-auto gap-5'>
+        <div className='mb-5 grid grid-cols-1 h-full max-w-6xl mx-auto gap-5'>
+            <div
+                className="flex justify-center w-full bg-black h-[700px] rounded-2xl overflow-hidden shadow-2xl"
+                style={{ aspectRatio: '9/16' }}
+            >
+                <iframe
+                    src={`https://www.youtube.com/embed/al4hTmrfmmM`}
+                    className="w-full h-full"
+                    allowFullScreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    title="Product Video"
+                ></iframe>
+            </div>
+
+            <div className="flex justify-center items-center mt-4">
+                <a
+                    className="bg-red-500 text-4xl text-center px-3 py-2 rounded-2xl"
+                    type="button"
+                    href="#order-form"
+                >অর্ডার করতে চাই</a>
+            </div>
+
             <h3 className="text-gray-800 text-xl">
                 <>
                     ৩৫% ডিসকাউন্ট চলছে আমাদের ওয়েবসাইটে <br />
@@ -20,19 +41,6 @@ export default function Banner() {
                     ধন্যবাদ।
                 </>
             </h3>
-
-            <div
-                className="relative bg-black w-full h-full md:h-[600px] rounded-2xl overflow-hidden shadow-2xl"
-                style={{ aspectRatio: '9/16' }}
-            >
-                <iframe
-                    src={`https://www.youtube.com/embed/al4hTmrfmmM`}
-                    className="absolute top-0 left-0 w-full h-full"
-                    allowFullScreen
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    title="Product Video"
-                ></iframe>
-            </div>
         </div>
     )
 }

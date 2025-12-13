@@ -46,9 +46,9 @@ export default function OrderForm() {
 
     const getDeliveryPrice = () => {
         switch (deliveryMethod) {
-            case "inside_dhaka": return 70;
-            case "outside_dhaka": return 100;
-            case "outside_bangladesh": return 130;
+            case "inside_dhaka": return 0;
+            case "outside_dhaka": return 0;
+            case "outside_bangladesh": return 0;
             default: return 0;
         }
     };
@@ -144,7 +144,7 @@ export default function OrderForm() {
 
                 <Products />
 
-                <form onSubmit={handleSubmit} className="grid flex-row-reverse md:grid-cols-2 gap-10 bg-white rounded-3xl p-8 md:p-12">
+                <form onSubmit={handleSubmit} className="grid flex-row-reverse md:grid-cols-1 gap-10 bg-white rounded-3xl p-8 md:p-12">
                     {/* Left: Billing */}
                     <div className="space-y-8 order-2 md:order-1">
                         <div className="flex items-center gap-3">
@@ -155,9 +155,6 @@ export default function OrderForm() {
                         </div>
 
                         <div className="grid gap-6">
-
-
-
 
                             <input type="text" placeholder="আপনার নাম *" required value={formData.name}
                                 onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -176,7 +173,7 @@ export default function OrderForm() {
                                 className="w-full px-5 py-4 border text-gray-800 border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-orange-500"
                                 maxLength={500} />
 
-                            <div className="mt-10">
+                            {/* <div className="mt-10">
                                 <div className="flex items-center gap-3 mb-6">
                                     <Truck className="w-5 h-5 text-orange-600" />
                                     <h3 className="text-xl font-semibold text-gray-900">Shipping</h3>
@@ -200,19 +197,19 @@ export default function OrderForm() {
                                         </label>
                                     ))}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
                     {/* Right: Order Details */}
                     <div className="space-y-8 order-1 md:order-2">
-                        <div className="flex items-center gap-3">
+                        {/* <div className="flex items-center gap-3">
                             <Package className="w-5 h-5 text-orange-600" />
                             <h3 className="text-xl font-semibold text-gray-900">Order Details</h3>
-                        </div>
+                        </div> */}
 
                         {/* Payment Info */}
-                        <div className="mt-10">
+                        {/* <div className="mt-10">
                             <div className="flex items-center gap-3 mb-6">
                                 <Wallet className="w-5 h-5 text-orange-600" />
                                 <h3 className="text-xl font-semibold text-gray-900">Payment Method</h3>
@@ -220,10 +217,10 @@ export default function OrderForm() {
                             <div className="p-5 border border-orange-500 bg-orange-50 rounded-xl">
                                 <p className="font-medium text-gray-900">Cash on Delivery</p>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* Order Summary */}
-                        {cartItems.length > 0 && (
+                        {/* {cartItems.length > 0 && (
                             <div className="mt-6 p-6 bg-gray-50 rounded-xl space-y-3">
                                 <h4 className="font-semibold text-gray-900">Order Summary</h4>
                                 <div className="flex justify-between text-sm">
@@ -241,14 +238,14 @@ export default function OrderForm() {
                                     </span>
                                 </div>
                             </div>
-                        )}
+                        )} */}
 
                         {/* Submit */}
                         <div className="md:col-span-2 flex justify-center mt-10">
                             <button type="submit" disabled={submitting || cartItems.length === 0}
-                                className="inline-flex items-center gap-3 px-12 py-5 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg rounded-full shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                                className="inline-flex items-center gap-3 px-12 py-5 bg-orange-500 text-white font-bold text-lg rounded-full shadow-lg transition-all disabled:cursor-not-allowed">
                                 <Check className="w-6 h-6" />
-                                {submitting ? "অর্ডার প্রক্রিয়াকরণ করা হচ্ছে..." : "অর্ডার নিশ্চিত করুন"}
+                                {submitting ? "কনফার্ম করা হচ্ছে..." : `কনফার্ম অর্ডার ${BDTFormatter.format(total)}`}
                             </button>
                         </div>
                     </div>
