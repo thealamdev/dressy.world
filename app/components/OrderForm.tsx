@@ -144,9 +144,9 @@ export default function OrderForm() {
 
                 <Products />
 
-                <form onSubmit={handleSubmit} className="grid flex-row-reverse md:grid-cols-1 gap-10 bg-white rounded-3xl p-8 md:p-12">
+                <form onSubmit={handleSubmit} className="grid md:grid-cols-1 gap-10 bg-white rounded-3xl p-8 md:p-12">
                     {/* Left: Billing */}
-                    <div className="space-y-8 order-2 md:order-1">
+                    <div className="space-y-8">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                                 <User className="w-5 h-5 text-orange-600" />
@@ -202,7 +202,7 @@ export default function OrderForm() {
                     </div>
 
                     {/* Right: Order Details */}
-                    <div className="space-y-8 order-1 md:order-2">
+                    <div className="space-y-8">
                         {/* <div className="flex items-center gap-3">
                             <Package className="w-5 h-5 text-orange-600" />
                             <h3 className="text-xl font-semibold text-gray-900">Order Details</h3>
