@@ -3,7 +3,7 @@ import imageUrl from '@/public/jaitun.jpg';
 
 export default function Banner() {
     return (
-        <div>
+        <div className='flex justify-center'>
             <Image
                 src={imageUrl}
                 alt='image'
